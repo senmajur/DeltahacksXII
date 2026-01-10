@@ -154,9 +154,9 @@ export default function BrowseClubsPage() {
 
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
-      Sports: "bg-blue-100 text-blue-800",
-      Hobby: "bg-purple-100 text-purple-800",
-      Community: "bg-green-100 text-green-800",
+      Sports: "bg-accent text-primary",
+      Hobby: "bg-accent text-primary",
+      Community: "bg-secondary/20 text-primary",
       Education: "bg-yellow-100 text-yellow-800",
       Arts: "bg-pink-100 text-pink-800",
     }
@@ -172,7 +172,7 @@ export default function BrowseClubsPage() {
         </div>
 
         <Card className="border-slate-200 shadow-sm">
-          <CardHeader className="bg-slate-50 border-b border-slate-100">
+          <CardHeader className="bg-background border-b border-slate-100">
             <CardTitle className="text-slate-900">Search Clubs</CardTitle>
             <CardDescription className="text-slate-500">Filter clubs by category and location</CardDescription>
           </CardHeader>
@@ -183,14 +183,14 @@ export default function BrowseClubsPage() {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <Input 
                     placeholder="Search clubs by name or description..." 
-                    className="pl-9 border-slate-200 focus:border-blue-500 focus:ring-blue-500"
+                    className="pl-9 border-slate-200 focus:border-primary/20 focus:ring-blue-500"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
                 </div>
               </div>
               <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger className="border-slate-200 focus:border-blue-500 focus:ring-blue-500">
+                <SelectTrigger className="border-slate-200 focus:border-primary/20 focus:ring-blue-500">
                   <SelectValue placeholder="All Categories" />
                 </SelectTrigger>
                 <SelectContent>
@@ -231,15 +231,15 @@ export default function BrowseClubsPage() {
             </div>
             
             {filteredClubs.length === 0 ? (
-              <div className="rounded-lg border-2 border-dashed border-slate-200 bg-slate-50 p-12 text-center">
+              <div className="rounded-lg border-2 border-dashed border-slate-200 bg-background p-12 text-center">
                 <p className="text-slate-500 font-medium">No clubs match your search</p>
                 <p className="text-slate-400 text-sm mt-1">Try adjusting your filters</p>
               </div>
             ) : (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredClubs.map((club) => (
-                  <Card key={club.id} className="border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 overflow-hidden">
-                    <CardHeader className="bg-slate-50 border-b border-slate-100 pb-3">
+                  <Card key={club.id} className="border-slate-200 hover:border-primary/20 hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <CardHeader className="bg-background border-b border-slate-100 pb-3">
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1">
                           <CardTitle className="text-lg text-slate-900 line-clamp-2">{club.name}</CardTitle>
@@ -248,7 +248,7 @@ export default function BrowseClubsPage() {
                               {club.category}
                             </Badge>
                             {memberClubs.has(club.id) && (
-                              <Badge className="bg-green-100 text-green-800 border-green-200">
+                              <Badge className="bg-secondary/20 text-primary border-green-200">
                                 <CheckCircle className="h-3 w-3 mr-1 inline" />
                                 Member
                               </Badge>
@@ -296,12 +296,12 @@ export default function BrowseClubsPage() {
                       <div className="pt-2 border-t border-slate-100">
                         <div className="flex flex-wrap gap-2 text-xs">
                           {club.email && (
-                            <span className="px-2 py-1 bg-blue-50 text-blue-600 rounded border border-blue-100">
+                            <span className="px-2 py-1 bg-accent text-primary rounded border border-primary/20">
                               {club.email}
                             </span>
                           )}
                           {club.phone && (
-                            <span className="px-2 py-1 bg-green-50 text-green-600 rounded border border-green-100">
+                            <span className="px-2 py-1 bg-secondary/20 text-primary rounded border border-green-100">
                               {club.phone}
                             </span>
                           )}
@@ -313,8 +313,8 @@ export default function BrowseClubsPage() {
                         disabled={joiningClub === club.id || memberClubs.has(club.id)}
                         className={`w-full mt-4 ${
                           memberClubs.has(club.id)
-                            ? 'bg-green-600 hover:bg-green-700'
-                            : 'bg-blue-600 hover:bg-blue-700'
+                            ? 'bg-secondary hover:bg-secondary'
+                            : 'bg-primary hover:bg-primary'
                         } text-white`}
                       >
                         {joiningClub === club.id 

@@ -87,8 +87,8 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative text-white" style={{ background: 'radial-gradient(ellipse at bottom, #00d4ff 0%, #0099ff 25%, #6600ff 50%, #330066 75%, #001a33 100%)' }}>
-      <div className="fixed inset-0 z-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at bottom, #00d4ff 0%, #0099ff 25%, #6600ff 50%, #330066 75%, #001a33 100%)' }} />
+    <div className="relative text-white" style={{ background: 'radial-gradient(ellipse at bottom, #FDBF57 0%, #7A003C 25%, #5E6A71 50%, #33001a 75%, #0f172a 100%)' }}>
+      <div className="fixed inset-0 z-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at bottom, #FDBF57 0%, #7A003C 25%, #5E6A71 50%, #33001a 75%, #0f172a 100%)' }} />
       
         <header className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none transition-all duration-300">
           <div className="bg-black/20 backdrop-blur-xl rounded-full px-6 py-3 flex items-center justify-between w-[95%] max-w-[1800px] pointer-events-auto">
@@ -151,8 +151,8 @@ export default function LandingPage() {
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
                         <div className="space-y-1">
-                          <h3 className="text-xl font-bold text-purple-900">Club Dashboard</h3>
-                          <p className="text-sm text-purple-600">Manage your community</p>
+                          <h3 className="text-xl font-bold text-primary">Club Dashboard</h3>
+                          <p className="text-sm text-primary">Manage your community</p>
                         </div>
                         <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl"></div>
                       </div>
@@ -165,28 +165,28 @@ export default function LandingPage() {
 
                       <div className="grid grid-cols-2 gap-4 pt-6">
                         <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-2xl">
-                          <div className="text-3xl font-bold text-purple-900">150+</div>
-                          <div className="text-sm text-purple-600">Members</div>
+                          <div className="text-3xl font-bold text-primary">150+</div>
+                          <div className="text-sm text-primary">Members</div>
                         </div>
                         <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 rounded-2xl">
-                          <div className="text-3xl font-bold text-purple-900">24</div>
-                          <div className="text-sm text-purple-600">Events</div>
+                          <div className="text-3xl font-bold text-primary">24</div>
+                          <div className="text-sm text-primary">Events</div>
                         </div>
                       </div>
 
                       <div className="pt-4 space-y-3">
-                        <div className="flex items-center gap-3 bg-purple-50 p-3 rounded-xl">
+                        <div className="flex items-center gap-3 bg-accent p-3 rounded-xl">
                           <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full"></div>
                           <div className="flex-1">
-                            <div className="h-3 bg-purple-200 rounded-full w-24 mb-1"></div>
-                            <div className="h-2 bg-purple-100 rounded-full w-32"></div>
+                            <div className="h-3 bg-accent rounded-full w-24 mb-1"></div>
+                            <div className="h-2 bg-accent rounded-full w-32"></div>
                           </div>
                         </div>
-                        <div className="flex items-center gap-3 bg-blue-50 p-3 rounded-xl">
+                        <div className="flex items-center gap-3 bg-accent p-3 rounded-xl">
                           <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full"></div>
                           <div className="flex-1">
-                            <div className="h-3 bg-blue-200 rounded-full w-20 mb-1"></div>
-                            <div className="h-2 bg-blue-100 rounded-full w-28"></div>
+                            <div className="h-3 bg-accent rounded-full w-20 mb-1"></div>
+                            <div className="h-2 bg-accent rounded-full w-28"></div>
                           </div>
                         </div>
                       </div>
@@ -199,15 +199,15 @@ export default function LandingPage() {
 
                   <div className="absolute top-32 -left-8 bg-white/90 backdrop-blur-xl px-5 py-3 rounded-full shadow-2xl flex items-center gap-3 border border-white/30 animate-pulse">
                     <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full border-2 border-white"></div>
-                    <span className="font-semibold text-purple-900 text-sm">Sarah</span>
+                    <span className="font-semibold text-primary text-sm">Sarah</span>
                   </div>
 
                   <div className="absolute bottom-24 -right-4 bg-white/90 backdrop-blur-xl px-5 py-3 rounded-full shadow-2xl flex items-center gap-3 border border-white/30 animate-pulse" style={{ animationDelay: '1s' }}>
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full border-2 border-white"></div>
-                    <span className="font-semibold text-purple-900 text-sm">Alex</span>
+                    <span className="font-semibold text-primary text-sm">Alex</span>
                   </div>
 
-                  <div className="absolute -top-12 left-12 w-24 h-24 bg-purple-400/20 rounded-full blur-2xl"></div>
+                  <div className="absolute -top-12 left-12 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
                   <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-pink-400/20 rounded-full blur-2xl"></div>
                 </div>
               </div>
@@ -255,44 +255,44 @@ export default function LandingPage() {
                   <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">Club Management</h2>
                   <ul className="space-y-5 text-slate-600 text-lg">
                     <li className="flex items-start gap-4">
-                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
                       </div>
                       <span>Unified City-Wide Club Registration</span>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
                       </div>
                       <span>Resident Engagement & Outreach Tools</span>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
                       </div>
                       <span>Centralized Activity & Event Management</span>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
                       </div>
                       <span>Team Organization & Roster Development</span>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
                       </div>
                       <span>Targeted Email & In-App Announcements</span>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
                       </div>
                       <span>Automated Financial & Performance Reports</span>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
                       </div>
                       <span>Member Progress Tracking & Insights</span>
                     </li>
@@ -312,43 +312,43 @@ export default function LandingPage() {
                 <ul className="space-y-5 text-slate-300 text-lg">
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
                     </div>
                     <span>Personalized Member Dashboards</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
                     </div>
                     <span>Easy Club Discovery & Registration</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
                     </div>
                     <span>Real-Time Activity Calendar</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
                     </div>
                     <span>Membership Management & Renewals</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
                     </div>
                     <span>Event Registration & Check-In</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
                     </div>
                     <span>Direct Communication with Club Leaders</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
                     </div>
                     <span>Progress Tracking & Achievement Badges</span>
                   </li>
@@ -418,7 +418,7 @@ export default function LandingPage() {
                   {activeFooterSection === 'contact' && (
                     <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 max-w-2xl mx-auto">
                       <h2 className="text-3xl font-bold mb-6 text-slate-900 text-center">Contact Us</h2>
-                      <form onSubmit={handleContactSubmit} className="space-y-5 bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                      <form onSubmit={handleContactSubmit} className="space-y-5 bg-background p-8 rounded-2xl border border-slate-100">
                         <div className="grid md:grid-cols-2 gap-5">
                           <div>
                             <label className="block text-sm font-medium text-slate-700 mb-1">Name</label>
@@ -428,7 +428,7 @@ export default function LandingPage() {
                               value={contactForm.name}
                               onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
                               required
-                              className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                              className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-primary/20 transition-all"
                             />
                           </div>
                           <div>
@@ -439,7 +439,7 @@ export default function LandingPage() {
                               value={contactForm.email}
                               onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
                               required
-                              className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                              className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-primary/20 transition-all"
                             />
                           </div>
                         </div>
@@ -451,18 +451,18 @@ export default function LandingPage() {
                             value={contactForm.message}
                             onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
                             required
-                            className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all resize-none"
+                            className="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-primary/20 transition-all resize-none"
                           ></textarea>
                         </div>
                         <Button 
                           type="submit"
                           disabled={contactLoading}
-                          className="w-full bg-blue-600 text-white hover:bg-blue-700 font-semibold py-4 text-lg rounded-lg transition-all duration-300 disabled:opacity-50 shadow-lg shadow-blue-600/20"
+                          className="w-full bg-primary text-white hover:bg-primary font-semibold py-4 text-lg rounded-lg transition-all duration-300 disabled:opacity-50 shadow-lg shadow-blue-600/20"
                         >
                           {contactLoading ? 'Sending...' : 'Send Message'}
                         </Button>
                         {contactMessage && (
-                          <div className={`text-sm text-center p-3 rounded-lg font-medium ${contactMessage.includes('Error') ? 'bg-red-50 text-red-600' : 'bg-green-50 text-green-600'}`}>
+                          <div className={`text-sm text-center p-3 rounded-lg font-medium ${contactMessage.includes('Error') ? 'bg-red-50 text-red-600' : 'bg-secondary/20 text-primary'}`}>
                             {contactMessage}
                           </div>
                         )}

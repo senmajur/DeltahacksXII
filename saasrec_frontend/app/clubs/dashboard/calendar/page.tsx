@@ -53,8 +53,8 @@ export default function CalendarPage() {
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-purple-900">Calendar & Events</h1>
-              <p className="text-purple-600 mt-2">Create and manage club activities</p>
+              <h1 className="text-3xl font-bold text-primary">Calendar & Events</h1>
+              <p className="text-primary mt-2">Create and manage club activities</p>
             </div>
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger asChild>
@@ -65,70 +65,70 @@ export default function CalendarPage() {
               </DialogTrigger>
               <DialogContent className="max-w-md">
                 <DialogHeader>
-                  <DialogTitle className="text-purple-900">Create New Event</DialogTitle>
-                  <DialogDescription className="text-purple-600">Add a new activity to your club calendar</DialogDescription>
+                  <DialogTitle className="text-primary">Create New Event</DialogTitle>
+                  <DialogDescription className="text-primary">Add a new activity to your club calendar</DialogDescription>
                 </DialogHeader>
                 <form onSubmit={handleCreateEvent}>
                   <div className="space-y-4 py-4">
                     <div className="space-y-2">
-                      <Label htmlFor="title" className="text-purple-900">Event Title</Label>
+                      <Label htmlFor="title" className="text-primary">Event Title</Label>
                       <Input
                         id="title"
                         placeholder="Enter event title"
                         value={eventForm.title}
                         onChange={(e) => setEventForm({ ...eventForm, title: e.target.value })}
                         required
-                        className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                        className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="description" className="text-purple-900">Description</Label>
+                      <Label htmlFor="description" className="text-primary">Description</Label>
                       <Textarea
                         id="description"
                         placeholder="Enter event description"
                         value={eventForm.description}
                         onChange={(e) => setEventForm({ ...eventForm, description: e.target.value })}
                         rows={3}
-                        className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                        className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="date" className="text-purple-900">Date</Label>
+                        <Label htmlFor="date" className="text-primary">Date</Label>
                         <Input
                           id="date"
                           type="date"
                           value={eventForm.date}
                           onChange={(e) => setEventForm({ ...eventForm, date: e.target.value })}
                           required
-                          className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                          className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="time" className="text-purple-900">Time</Label>
+                        <Label htmlFor="time" className="text-primary">Time</Label>
                         <Input
                           id="time"
                           type="time"
                           value={eventForm.time}
                           onChange={(e) => setEventForm({ ...eventForm, time: e.target.value })}
                           required
-                          className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                          className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                         />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="location" className="text-purple-900">Location</Label>
+                      <Label htmlFor="location" className="text-primary">Location</Label>
                       <Input
                         id="location"
                         placeholder="Enter location"
                         value={eventForm.location}
                         onChange={(e) => setEventForm({ ...eventForm, location: e.target.value })}
                         required
-                        className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                        className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="capacity" className="text-purple-900">Capacity</Label>
+                      <Label htmlFor="capacity" className="text-primary">Capacity</Label>
                       <Input
                         id="capacity"
                         type="number"
@@ -136,12 +136,12 @@ export default function CalendarPage() {
                         value={eventForm.capacity}
                         onChange={(e) => setEventForm({ ...eventForm, capacity: e.target.value })}
                         required
-                        className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                        className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                       />
                     </div>
                   </div>
                   <DialogFooter>
-                    <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)} className="border-purple-300 text-purple-700 hover:bg-purple-50">
+                    <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)} className="border-primary/20 text-primary hover:bg-accent">
                       Cancel
                     </Button>
                     <Button type="submit" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">Create Event</Button>
@@ -152,10 +152,10 @@ export default function CalendarPage() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="lg:col-span-2 border-purple-200 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100">
-                <CardTitle className="text-purple-900">Upcoming Events</CardTitle>
-                <CardDescription className="text-purple-600">All scheduled activities for your club</CardDescription>
+            <Card className="lg:col-span-2 border-primary/20 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-primary/20">
+                <CardTitle className="text-primary">Upcoming Events</CardTitle>
+                <CardDescription className="text-primary">All scheduled activities for your club</CardDescription>
               </CardHeader>
               <CardContent className="p-0">
                 <div className="divide-y divide-purple-100">
@@ -164,14 +164,14 @@ export default function CalendarPage() {
                     { id: 2, title: "Swimming Gala", date: "2023-07-20", time: "02:00 PM", location: "Aquatic Center", capacity: "45/100" },
                     { id: 3, title: "Basketball Tournament", date: "2023-08-05", time: "10:00 AM", location: "Indoor Gym", capacity: "12/20 Teams" },
                   ].map((event) => (
-                    <div key={event.id} className="p-4 hover:bg-purple-50/50 transition-colors flex items-center justify-between">
+                    <div key={event.id} className="p-4 hover:bg-accent/50 transition-colors flex items-center justify-between">
                       <div className="flex items-start gap-4">
-                        <div className="bg-purple-100 text-purple-700 rounded-lg p-2 text-center min-w-[60px]">
+                        <div className="bg-accent text-primary rounded-lg p-2 text-center min-w-[60px]">
                           <div className="text-xs font-bold uppercase">{new Date(event.date).toLocaleString('default', { month: 'short' })}</div>
                           <div className="text-xl font-bold">{new Date(event.date).getDate()}</div>
                         </div>
                         <div>
-                          <h3 className="font-semibold text-purple-900">{event.title}</h3>
+                          <h3 className="font-semibold text-primary">{event.title}</h3>
                           <div className="text-sm text-slate-600 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1">
                             <span>{event.time}</span>
                             <span className="hidden sm:inline text-slate-300">•</span>
@@ -180,8 +180,8 @@ export default function CalendarPage() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm font-medium text-purple-700">{event.capacity}</div>
-                        <div className="text-xs text-purple-500">Registered</div>
+                        <div className="text-sm font-medium text-primary">{event.capacity}</div>
+                        <div className="text-xs text-primary">Registered</div>
                       </div>
                     </div>
                   ))}
@@ -189,12 +189,12 @@ export default function CalendarPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-purple-200 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100">
-                <CardTitle className="text-purple-900">Calendar</CardTitle>
+            <Card className="border-primary/20 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-primary/20">
+                <CardTitle className="text-primary">Calendar</CardTitle>
               </CardHeader>
               <CardContent className="flex justify-center">
-                <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border border-purple-200" />
+                <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border border-primary/20" />
               </CardContent>
             </Card>
           </div>

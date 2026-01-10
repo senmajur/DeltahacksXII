@@ -19,7 +19,7 @@ export default function UserReportsPage() {
           <Card className="border-slate-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-slate-600">Total Activities</CardTitle>
-              <Activity className="h-4 w-4 text-blue-500" />
+              <Activity className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-slate-900">12</div>
@@ -29,7 +29,7 @@ export default function UserReportsPage() {
           <Card className="border-slate-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-slate-600">Hours Active</CardTitle>
-              <TrendingUp className="h-4 w-4 text-green-500" />
+              <TrendingUp className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-slate-900">24.5</div>
@@ -39,7 +39,7 @@ export default function UserReportsPage() {
           <Card className="border-slate-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-slate-600">Events Attended</CardTitle>
-              <Calendar className="h-4 w-4 text-purple-500" />
+              <Calendar className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-slate-900">8</div>
@@ -67,7 +67,7 @@ export default function UserReportsPage() {
             <CardContent>
               <div className="h-[200px] flex items-end justify-between gap-2 pt-4 px-2">
                 {[35, 45, 30, 60, 75, 50].map((height, i) => (
-                  <div key={i} className="w-full bg-blue-100 rounded-t-md relative group hover:bg-blue-200 transition-colors" style={{ height: `${height}%` }}>
+                  <div key={i} className="w-full bg-accent rounded-t-md relative group hover:bg-accent transition-colors" style={{ height: `${height}%` }}>
                     <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">
                       {height} hrs
                     </div>

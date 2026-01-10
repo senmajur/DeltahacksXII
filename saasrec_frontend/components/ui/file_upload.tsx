@@ -48,7 +48,7 @@ export default function FileUpload({ accept = "image/*", maxSizeMB = 2, onFileSe
         />
         <button
           type="button"
-          className="inline-flex items-center px-3 py-2 rounded bg-purple-600 text-white hover:bg-purple-700"
+          className="inline-flex items-center px-3 py-2 rounded bg-primary text-white hover:bg-primary"
           onClick={() => inputRef.current?.click()}
         >
           {label}

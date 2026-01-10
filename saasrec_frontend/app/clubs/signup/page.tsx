@@ -83,8 +83,8 @@ export default function ClubSignUpPage() {
       <main className="flex-1 flex items-center justify-center p-6">
         <Card className="w-full max-w-md bg-white/95 backdrop-blur-xl border-white/20 shadow-2xl">
           <CardHeader className="space-y-2">
-            <CardTitle className="text-2xl font-bold text-purple-900">Club Registration</CardTitle>
-            <CardDescription className="text-purple-600">Create an account to manage your club</CardDescription>
+            <CardTitle className="text-2xl font-bold text-primary">Club Registration</CardTitle>
+            <CardDescription className="text-primary">Create an account to manage your club</CardDescription>
           </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
@@ -97,13 +97,13 @@ export default function ClubSignUpPage() {
             
             {/* Success Display */}
             {createdOrg && (
-              <div className="bg-green-100 border border-green-300 text-green-800 p-3 rounded-lg text-sm font-medium">
+              <div className="bg-secondary/20 border border-green-300 text-primary p-3 rounded-lg text-sm font-medium">
                 ✅ Organization "{createdOrg.name}" created successfully! (ID: {createdOrg.id})
                 <br />Redirecting to dashboard...
               </div>
             )}
             <div className="space-y-2">
-              <Label htmlFor="clubName" className="text-purple-900 font-medium">Club Name</Label>
+              <Label htmlFor="clubName" className="text-primary font-medium">Club Name</Label>
               <Input
                 id="clubName"
                 type="text"
@@ -111,13 +111,13 @@ export default function ClubSignUpPage() {
                 value={formData.clubName}
                 onChange={(e) => setFormData({ ...formData, clubName: e.target.value })}
                 required
-                className="bg-white/50 border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                className="bg-white/50 border-primary/20 focus:border-primary/20 focus:ring-purple-400"
               />
             </div>
             
             {/* Single Admin Email Field - As per spec: only one admin email */}
             <div className="space-y-2">
-              <Label htmlFor="adminEmail" className="text-purple-900 font-medium">
+              <Label htmlFor="adminEmail" className="text-primary font-medium">
                 Admin Email <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -127,54 +127,54 @@ export default function ClubSignUpPage() {
                 value={formData.adminEmail}
                 onChange={(e) => setFormData({ ...formData, adminEmail: e.target.value })}
                 required
-                className="bg-white/50 border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                className="bg-white/50 border-primary/20 focus:border-primary/20 focus:ring-purple-400"
               />
-              <p className="text-xs text-purple-600">This email will have full admin rights</p>
+              <p className="text-xs text-primary">This email will have full admin rights</p>
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-purple-900 font-medium">Password</Label>
+              <Label htmlFor="password" className="text-primary font-medium">Password</Label>
               <Input
                 id="password"
                 type="password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 required
-                className="bg-white/50 border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                className="bg-white/50 border-primary/20 focus:border-primary/20 focus:ring-purple-400"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-purple-900 font-medium">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-primary font-medium">Confirm Password</Label>
               <Input
                 id="confirmPassword"
                 type="password"
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 required
-                className="bg-white/50 border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                className="bg-white/50 border-primary/20 focus:border-primary/20 focus:ring-purple-400"
               />
             </div>
             
             {/* Contract Agreement - As per spec */}
-            <div className="border border-purple-300 rounded-lg p-4 bg-purple-50/50 space-y-3">
+            <div className="border border-primary/20 rounded-lg p-4 bg-accent/50 space-y-3">
               <div className="flex items-start gap-2">
                 <Checkbox
                   id="contract"
                   checked={formData.agreedToContract}
                   onCheckedChange={(checked) => setFormData({ ...formData, agreedToContract: checked as boolean })}
                   required
-                  className="border-purple-300 data-[state=checked]:bg-purple-600 mt-1"
+                  className="border-primary/20 data-[state=checked]:bg-primary mt-1"
                 />
                 <div className="flex-1">
-                  <Label htmlFor="contract" className="text-sm font-semibold cursor-pointer text-purple-900">
+                  <Label htmlFor="contract" className="text-sm font-semibold cursor-pointer text-primary">
                     I agree to the Club Service Agreement <span className="text-red-500">*</span>
                   </Label>
-                  <p className="text-xs text-purple-700 mt-1">
+                  <p className="text-xs text-primary mt-1">
                     By checking this box, you agree to our service agreement and payment terms
                   </p>
                   <button 
                     type="button"
-                    className="text-xs text-purple-600 hover:text-purple-800 underline mt-1"
+                    className="text-xs text-primary hover:text-primary underline mt-1"
                     onClick={() => window.open('/temp-contract.pdf', '_blank')}
                   >
                     View Contract (Temporary File)
@@ -189,9 +189,9 @@ export default function ClubSignUpPage() {
                 checked={formData.agreedToTerms}
                 onCheckedChange={(checked) => setFormData({ ...formData, agreedToTerms: checked as boolean })}
                 required
-                className="border-purple-300 data-[state=checked]:bg-purple-600"
+                className="border-primary/20 data-[state=checked]:bg-primary"
               />
-              <Label htmlFor="terms" className="text-sm leading-relaxed cursor-pointer text-purple-800">
+              <Label htmlFor="terms" className="text-sm leading-relaxed cursor-pointer text-primary">
                 I agree to the terms and conditions
               </Label>
             </div>
@@ -204,9 +204,9 @@ export default function ClubSignUpPage() {
             >
               {isLoading ? "Creating Account..." : createdOrg ? "Account Created!" : "Create Account"}
             </Button>
-            <div className="text-sm text-center text-purple-700">
+            <div className="text-sm text-center text-primary">
               Already have an account?{" "}
-              <a href="/clubs/signin" className="text-purple-900 hover:underline font-semibold">
+              <a href="/clubs/signin" className="text-primary hover:underline font-semibold">
                 Sign In
               </a>
             </div>
