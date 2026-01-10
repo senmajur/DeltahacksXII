@@ -15,14 +15,14 @@ export default function UserOverviewPage() {
             <h1 className="text-3xl font-bold tracking-tight text-slate-900">Welcome back, User!</h1>
             <p className="text-slate-500 mt-2">Here's what's happening with your clubs and activities.</p>
           </div>
-          <Button className="bg-blue-600 hover:bg-blue-700">Find New Activities</Button>
+          <Button className="bg-primary hover:bg-primary">Find New Activities</Button>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Card className="border-slate-200 shadow-sm hover:shadow-md transition-shadow">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-slate-600">Upcoming Activities</CardTitle>
-              <Calendar className="h-4 w-4 text-blue-500" />
+              <Calendar className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-slate-900">3</div>
@@ -32,7 +32,7 @@ export default function UserOverviewPage() {
           <Card className="border-slate-200 shadow-sm hover:shadow-md transition-shadow">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-slate-600">Active Memberships</CardTitle>
-              <CreditCard className="h-4 w-4 text-green-500" />
+              <CreditCard className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-slate-900">2</div>
@@ -42,7 +42,7 @@ export default function UserOverviewPage() {
           <Card className="border-slate-200 shadow-sm hover:shadow-md transition-shadow">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-slate-600">Clubs Joined</CardTitle>
-              <Users className="h-4 w-4 text-purple-500" />
+              <Users className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-slate-900">4</div>
@@ -70,7 +70,7 @@ export default function UserOverviewPage() {
                       <p className="text-sm font-medium text-slate-900">{activity.title}</p>
                       <p className="text-xs text-slate-500">{activity.time}</p>
                     </div>
-                    <Badge variant="outline" className="text-xs font-normal bg-slate-50">{activity.type}</Badge>
+                    <Badge variant="outline" className="text-xs font-normal bg-background">{activity.type}</Badge>
                   </div>
                 ))}
               </div>
@@ -84,12 +84,12 @@ export default function UserOverviewPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="p-4 rounded-lg bg-blue-50 border border-blue-100">
+                <div className="p-4 rounded-lg bg-accent border border-primary/20">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-semibold text-blue-900">Soccer Practice</h3>
-                    <Badge className="bg-blue-200 text-blue-800 hover:bg-blue-300 border-0">Tomorrow</Badge>
+                    <h3 className="font-semibold text-primary">Soccer Practice</h3>
+                    <Badge className="bg-accent text-primary hover:bg-primary border-0">Tomorrow</Badge>
                   </div>
-                  <div className="space-y-2 text-sm text-blue-700">
+                  <div className="space-y-2 text-sm text-primary">
                     <div className="flex items-center gap-2">
                       <Clock className="h-4 w-4" />
                       <span>18:00 - 19:30</span>
@@ -101,12 +101,12 @@ export default function UserOverviewPage() {
                   </div>
                 </div>
 
-                <div className="p-4 rounded-lg bg-purple-50 border border-purple-100">
+                <div className="p-4 rounded-lg bg-accent border border-primary/20">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-semibold text-purple-900">Swimming Lesson</h3>
-                    <Badge className="bg-purple-200 text-purple-800 hover:bg-purple-300 border-0">Wed, Dec 20</Badge>
+                    <h3 className="font-semibold text-primary">Swimming Lesson</h3>
+                    <Badge className="bg-accent text-primary hover:bg-primary border-0">Wed, Dec 20</Badge>
                   </div>
-                  <div className="space-y-2 text-sm text-purple-700">
+                  <div className="space-y-2 text-sm text-primary">
                     <div className="flex items-center gap-2">
                       <Clock className="h-4 w-4" />
                       <span>16:00 - 17:00</span>
@@ -118,7 +118,7 @@ export default function UserOverviewPage() {
                   </div>
                 </div>
               </div>
-              <Button variant="ghost" className="w-full mt-4 text-blue-600 hover:text-blue-800 hover:bg-blue-50">
+              <Button variant="ghost" className="w-full mt-4 text-primary hover:text-primary hover:bg-accent">
                 View Full Calendar <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </CardContent>
