@@ -36,70 +36,70 @@ export default function ReportsPage() {
       <div className="p-6">
         <div className="max-w-6xl mx-auto space-y-8">
           <div>
-            <h1 className="text-3xl font-bold text-purple-900">Reports</h1>
-            <p className="text-purple-600 mt-2">View and export financial and activity reports</p>
+            <h1 className="text-3xl font-bold text-primary">Reports</h1>
+            <p className="text-primary mt-2">View and export financial and activity reports</p>
           </div>
 
           <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 bg-purple-100/50 p-1 mb-6">
-              <TabsTrigger value="financials" className="data-[state=active]:bg-white data-[state=active]:text-purple-700">Financials</TabsTrigger>
-              <TabsTrigger value="assessments" className="data-[state=active]:bg-white data-[state=active]:text-purple-700">Assessments</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 bg-accent/50 p-1 mb-6">
+              <TabsTrigger value="financials" className="data-[state=active]:bg-white data-[state=active]:text-primary">Financials</TabsTrigger>
+              <TabsTrigger value="assessments" className="data-[state=active]:bg-white data-[state=active]:text-primary">Assessments</TabsTrigger>
             </TabsList>
 
             <TabsContent value="financials" className="space-y-8">
               <div className="grid md:grid-cols-3 gap-6">
-                <Card className="border-purple-200 shadow-lg">
+                <Card className="border-primary/20 shadow-lg">
                   <CardHeader className="pb-3 bg-gradient-to-r from-purple-50 to-pink-50">
-                    <CardTitle className="text-sm font-medium text-purple-600 flex items-center gap-2">
+                    <CardTitle className="text-sm font-medium text-primary flex items-center gap-2">
                       <TrendingUp className="h-4 w-4" /> Total Revenue
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold text-purple-900">$12,450.00</div>
-                    <p className="text-xs text-green-600 mt-1 flex items-center">
+                    <div className="text-2xl font-bold text-primary">$12,450.00</div>
+                    <p className="text-xs text-primary mt-1 flex items-center">
                       <span className="font-bold mr-1">+15%</span> from last month
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="border-purple-200 shadow-lg">
+                <Card className="border-primary/20 shadow-lg">
                   <CardHeader className="pb-3 bg-gradient-to-r from-purple-50 to-pink-50">
-                    <CardTitle className="text-sm font-medium text-purple-600 flex items-center gap-2">
+                    <CardTitle className="text-sm font-medium text-primary flex items-center gap-2">
                       <Users className="h-4 w-4" /> Active Members
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold text-purple-900">142</div>
-                    <p className="text-xs text-green-600 mt-1 flex items-center">
+                    <div className="text-2xl font-bold text-primary">142</div>
+                    <p className="text-xs text-primary mt-1 flex items-center">
                       <span className="font-bold mr-1">+8</span> new this week
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="border-purple-200 shadow-lg">
+                <Card className="border-primary/20 shadow-lg">
                   <CardHeader className="pb-3 bg-gradient-to-r from-purple-50 to-pink-50">
-                    <CardTitle className="text-sm font-medium text-purple-600 flex items-center gap-2">
+                    <CardTitle className="text-sm font-medium text-primary flex items-center gap-2">
                       <Calendar className="h-4 w-4" /> Total Events
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold text-purple-900">24</div>
-                    <p className="text-xs text-purple-500 mt-1">Scheduled for this month</p>
+                    <div className="text-2xl font-bold text-primary">24</div>
+                    <p className="text-xs text-primary mt-1">Scheduled for this month</p>
                   </CardContent>
                 </Card>
               </div>
 
-              <Card className="border-purple-200 shadow-lg">
-                <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100">
-                  <CardTitle className="text-purple-900">Generate Reports</CardTitle>
-                  <CardDescription className="text-purple-600">Select a report type and date range to generate</CardDescription>
+              <Card className="border-primary/20 shadow-lg">
+                <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-primary/20">
+                  <CardTitle className="text-primary">Generate Reports</CardTitle>
+                  <CardDescription className="text-primary">Select a report type and date range to generate</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6 pt-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-purple-900">Report Type</label>
+                      <label className="text-sm font-medium text-primary">Report Type</label>
                       <Select>
-                        <SelectTrigger className="border-purple-200 focus:border-purple-400 focus:ring-purple-400">
+                        <SelectTrigger className="border-primary/20 focus:border-primary/20 focus:ring-purple-400">
                           <SelectValue placeholder="Select report type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -112,9 +112,9 @@ export default function ReportsPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-purple-900">Date Range</label>
+                      <label className="text-sm font-medium text-primary">Date Range</label>
                       <Select>
-                        <SelectTrigger className="border-purple-200 focus:border-purple-400 focus:ring-purple-400">
+                        <SelectTrigger className="border-primary/20 focus:border-primary/20 focus:ring-purple-400">
                           <SelectValue placeholder="Select date range" />
                         </SelectTrigger>
                         <SelectContent>
@@ -135,40 +135,40 @@ export default function ReportsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-purple-200 shadow-lg">
-                <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100">
-                  <CardTitle className="text-purple-900">Recent Reports</CardTitle>
-                  <CardDescription className="text-purple-600">Previously generated reports</CardDescription>
+              <Card className="border-primary/20 shadow-lg">
+                <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-primary/20">
+                  <CardTitle className="text-primary">Recent Reports</CardTitle>
+                  <CardDescription className="text-primary">Previously generated reports</CardDescription>
                 </CardHeader>
                 <CardContent className="p-0">
                   <Table>
                     <TableHeader>
-                      <TableRow className="hover:bg-purple-50/50">
-                        <TableHead className="text-purple-900">Report Name</TableHead>
-                        <TableHead className="text-purple-900">Type</TableHead>
-                        <TableHead className="text-purple-900">Date Generated</TableHead>
-                        <TableHead className="text-purple-900">Size</TableHead>
-                        <TableHead className="text-purple-900">Status</TableHead>
-                        <TableHead className="text-right text-purple-900">Action</TableHead>
+                      <TableRow className="hover:bg-accent/50">
+                        <TableHead className="text-primary">Report Name</TableHead>
+                        <TableHead className="text-primary">Type</TableHead>
+                        <TableHead className="text-primary">Date Generated</TableHead>
+                        <TableHead className="text-primary">Size</TableHead>
+                        <TableHead className="text-primary">Status</TableHead>
+                        <TableHead className="text-right text-primary">Action</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       {RECENT_REPORTS.map((report) => (
-                        <TableRow key={report.id} className="hover:bg-purple-50/30">
+                        <TableRow key={report.id} className="hover:bg-accent/30">
                           <TableCell className="font-medium flex items-center gap-2">
-                            <FileText className="h-4 w-4 text-purple-500" />
+                            <FileText className="h-4 w-4 text-primary" />
                             {report.name}
                           </TableCell>
                           <TableCell>{report.type}</TableCell>
                           <TableCell>{report.date}</TableCell>
                           <TableCell>{report.size}</TableCell>
                           <TableCell>
-                            <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                            <Badge variant="outline" className="bg-secondary/20 text-primary border-green-200">
                               {report.status}
                             </Badge>
                           </TableCell>
                           <TableCell className="text-right">
-                            <Button variant="ghost" size="sm" className="text-purple-600 hover:text-purple-800 hover:bg-purple-50">
+                            <Button variant="ghost" size="sm" className="text-primary hover:text-primary hover:bg-accent">
                               <Download className="h-4 w-4" />
                             </Button>
                           </TableCell>
@@ -181,8 +181,8 @@ export default function ReportsPage() {
             </TabsContent>
 
             <TabsContent value="assessments">
-              <Card className="border-purple-200 shadow-lg p-6">
-                <div className="text-center text-purple-600">Assessments Reports Placeholder</div>
+              <Card className="border-primary/20 shadow-lg p-6">
+                <div className="text-center text-primary">Assessments Reports Placeholder</div>
               </Card>
             </TabsContent>
           </Tabs>

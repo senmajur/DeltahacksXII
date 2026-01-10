@@ -187,15 +187,15 @@ export default function UserProfilePage() {
     <UserDashboardLayout title="Profile" activePage="profile">
       <div className="max-w-4xl mx-auto space-y-8">
         <div>
-          <p className="text-purple-600 mt-2">Manage your account information</p>
+          <p className="text-primary mt-2">Manage your account information</p>
         </div>
 
-        <Card className="border-purple-200 shadow-lg">
-          <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100">
+        <Card className="border-primary/20 shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-primary/20">
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle className="text-purple-900">Account Information</CardTitle>
-                <CardDescription className="text-purple-600">Update your personal details</CardDescription>
+                <CardTitle className="text-primary">Account Information</CardTitle>
+                <CardDescription className="text-primary">Update your personal details</CardDescription>
               </div>
               <Badge className="bg-gradient-to-r from-purple-600 to-pink-600 text-white">Free Plan</Badge>
             </div>
@@ -204,50 +204,50 @@ export default function UserProfilePage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="firstName" className="text-purple-900">First Name</Label>
+                  <Label htmlFor="firstName" className="text-primary">First Name</Label>
                   <Input
                     id="firstName"
                     type="text"
                     placeholder="John"
                     value={profile.firstName}
                     onChange={(e) => setProfile({ ...profile, firstName: e.target.value })}
-                    className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                    className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="lastName" className="text-purple-900">Last Name</Label>
+                  <Label htmlFor="lastName" className="text-primary">Last Name</Label>
                   <Input
                     id="lastName"
                     type="text"
                     placeholder="Doe"
                     value={profile.lastName}
                     onChange={(e) => setProfile({ ...profile, lastName: e.target.value })}
-                    className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                    className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-purple-900">Email</Label>
+                <Label htmlFor="email" className="text-primary">Email</Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="you@example.com"
                   value={profile.email}
                   onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-                  className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                  className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="phone" className="text-purple-900">Phone Number</Label>
+                <Label htmlFor="phone" className="text-primary">Phone Number</Label>
                 <Input
                   id="phone"
                   type="tel"
                   placeholder="(555) 123-4567"
                   value={profile.phone}
                   onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
-                  className="border-purple-200 focus:border-purple-400 focus:ring-purple-400"
+                  className="border-primary/20 focus:border-primary/20 focus:ring-purple-400"
                 />
               </div>
 
@@ -260,16 +260,16 @@ export default function UserProfilePage() {
         <Collapsible
           open={isChildrenExpanded}
           onOpenChange={setIsChildrenExpanded}
-          className="border border-purple-200 rounded-lg shadow-lg bg-white"
+          className="border border-primary/20 rounded-lg shadow-lg bg-white"
         >
-          <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100 rounded-t-lg">
+          <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-purple-50 to-pink-50 border-b border-primary/20 rounded-t-lg">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-purple-100 rounded-full text-purple-600">
+              <div className="p-2 bg-accent rounded-full text-primary">
                 <Users className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-purple-900">Children</h3>
-                <p className="text-sm text-purple-600">
+                <h3 className="text-lg font-semibold text-primary">Children</h3>
+                <p className="text-sm text-primary">
                   {children.length} {children.length === 1 ? "child" : "children"} added
                 </p>
               </div>
@@ -278,7 +278,7 @@ export default function UserProfilePage() {
               <Button
                 variant="outline"
                 size="sm"
-                className="hidden sm:flex border-purple-200 text-purple-700 hover:bg-purple-50"
+                className="hidden sm:flex border-primary/20 text-primary hover:bg-accent"
                 onClick={(e) => {
                   e.stopPropagation()
                   setIsChildrenExpanded(true)
@@ -291,9 +291,9 @@ export default function UserProfilePage() {
               <CollapsibleTrigger asChild>
                 <Button variant="ghost" size="sm" className="w-9 p-0">
                   {isChildrenExpanded ? (
-                    <ChevronUp className="h-4 w-4 text-purple-500" />
+                    <ChevronUp className="h-4 w-4 text-primary" />
                   ) : (
-                    <ChevronDown className="h-4 w-4 text-purple-500" />
+                    <ChevronDown className="h-4 w-4 text-primary" />
                   )}
                   <span className="sr-only">Toggle</span>
                 </Button>
@@ -303,11 +303,11 @@ export default function UserProfilePage() {
 
           <CollapsibleContent className="p-6 space-y-4">
             {children.length === 0 && !isAddingChild && (
-              <div className="text-center py-8 text-slate-500 bg-slate-50 rounded-lg border border-dashed border-slate-200">
+              <div className="text-center py-8 text-slate-500 bg-background rounded-lg border border-dashed border-slate-200">
                 <p>No children added yet.</p>
                 <Button
                   variant="link"
-                  className="text-purple-600"
+                  className="text-primary"
                   onClick={() => setIsAddingChild(true)}
                 >
                   Add your first child
@@ -339,7 +339,7 @@ export default function UserProfilePage() {
             {children.length > 0 && !isAddingChild && (
               <Button
                 variant="outline"
-                className="w-full border-dashed border-purple-300 text-purple-600 hover:bg-purple-50 mt-4"
+                className="w-full border-dashed border-primary/20 text-primary hover:bg-accent mt-4"
                 onClick={() => setIsAddingChild(true)}
               >
                 <Plus className="h-4 w-4 mr-2" />
@@ -349,13 +349,13 @@ export default function UserProfilePage() {
           </CollapsibleContent>
         </Collapsible>
 
-        <Card className="border-purple-200 shadow-lg">
-          <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100">
-            <CardTitle className="text-purple-900">Premium Features</CardTitle>
-            <CardDescription className="text-purple-600">Upgrade to unlock additional features</CardDescription>
+        <Card className="border-primary/20 shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-primary/20">
+            <CardTitle className="text-primary">Premium Features</CardTitle>
+            <CardDescription className="text-primary">Upgrade to unlock additional features</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <ul className="space-y-2 text-sm text-purple-600">
+            <ul className="space-y-2 text-sm text-primary">
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600" />
                 Email reminders for activities
@@ -369,7 +369,7 @@ export default function UserProfilePage() {
                 Priority registration for events
               </li>
             </ul>
-            <Button variant="outline" className="w-full border-purple-300 text-purple-700 hover:bg-purple-50">
+            <Button variant="outline" className="w-full border-primary/20 text-primary hover:bg-accent">
               Upgrade to Premium
             </Button>
           </CardContent>

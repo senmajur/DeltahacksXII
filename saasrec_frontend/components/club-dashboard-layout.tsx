@@ -77,16 +77,16 @@ export default function ClubDashboardLayout({ children }: ClubDashboardLayoutPro
   const isActive = (path: string) => pathname === path || pathname.startsWith(path + '/')
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-background">
       <div className="flex h-screen overflow-hidden">
         {/* Sidebar for desktop */}
-        <aside className="hidden md:flex md:flex-col md:w-64 bg-[#1a1c23] text-white border-r border-slate-800 shadow-xl">
+        <aside className="hidden md:flex md:flex-col md:w-64 bg-sidebar text-sidebar-foreground border-r border-sidebar-border shadow-xl">
           <div className="flex flex-col flex-1 overflow-y-auto">
             {/* Club Info Header */}
-            <div className="flex items-center justify-between p-6 border-b border-slate-800">
+            <div className="flex items-center justify-between p-6 border-b border-sidebar-border">
               <div>
-                <h2 className="text-xl font-bold text-white">{clubName}</h2>
-                <p className="text-sm text-slate-400">Club Dashboard</p>
+                <h2 className="text-xl font-bold text-sidebar-foreground">{clubName}</h2>
+                <p className="text-sm text-sidebar-accent-foreground/70">Club Dashboard</p>
               </div>
             </div>
 
@@ -101,7 +101,7 @@ export default function ClubDashboardLayout({ children }: ClubDashboardLayoutPro
                       to={item.href}
                       className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                         active && !item.subItems
-                          ? "bg-blue-600 text-white shadow-md"
+                          ? "bg-primary text-white shadow-md"
                           : "text-slate-300 hover:bg-slate-800 hover:text-white"
                       }`}
                     >
@@ -154,7 +154,7 @@ export default function ClubDashboardLayout({ children }: ClubDashboardLayoutPro
               className="fixed inset-0 bg-black/50"
               onClick={() => setIsSidebarOpen(false)}
             />
-            <aside className="fixed inset-y-0 left-0 w-64 bg-[#1a1c23] text-white shadow-xl">
+            <aside className="fixed inset-y-0 left-0 w-64 bg-[var(--sidebar)] text-white shadow-xl">
               <div className="flex flex-col h-full">
                 {/* Mobile Header */}
                 <div className="flex items-center justify-between p-4 border-b border-slate-800">
@@ -182,7 +182,7 @@ export default function ClubDashboardLayout({ children }: ClubDashboardLayoutPro
                           onClick={() => !item.subItems && setIsSidebarOpen(false)}
                           className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                             active && !item.subItems
-                              ? "bg-blue-600 text-white shadow-md"
+                              ? "bg-primary text-white shadow-md"
                               : "text-slate-300 hover:bg-slate-800 hover:text-white"
                           }`}
                         >
@@ -232,7 +232,7 @@ export default function ClubDashboardLayout({ children }: ClubDashboardLayoutPro
         )}
 
         {/* Main Content Area */}
-        <div className="flex flex-col flex-1 overflow-hidden bg-slate-50">
+        <div className="flex flex-col flex-1 overflow-hidden bg-background">
           {/* Mobile Header */}
           <header className="md:hidden flex items-center justify-between p-4 bg-white border-b border-slate-200 shadow-sm">
             <button

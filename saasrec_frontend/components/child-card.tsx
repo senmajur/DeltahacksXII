@@ -105,11 +105,11 @@ export function ChildCard({ child, onSave, onDelete, onCancel, isNew = false }: 
 
     if (!isEditing && !isNew) {
         return (
-            <Card className="border-purple-200 shadow-sm hover:shadow-md transition-shadow">
+            <Card className="border-primary/20 shadow-sm hover:shadow-md transition-shadow">
                 <CardHeader className="pb-2">
                     <div className="flex justify-between items-start">
                         <div>
-                            <CardTitle className="text-lg font-semibold text-purple-900">
+                            <CardTitle className="text-lg font-semibold text-primary">
                                 {child?.first_name} {child?.last_name}
                             </CardTitle>
                             <CardDescription>
@@ -117,7 +117,7 @@ export function ChildCard({ child, onSave, onDelete, onCancel, isNew = false }: 
                             </CardDescription>
                         </div>
                         {child?.is_participant && (
-                            <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">
+                            <span className="bg-secondary/20 text-primary text-xs px-2 py-1 rounded-full font-medium">
                                 Participant
                             </span>
                         )}
@@ -142,9 +142,9 @@ export function ChildCard({ child, onSave, onDelete, onCancel, isNew = false }: 
     }
 
     return (
-        <Card className="border-purple-200 shadow-lg">
-            <CardHeader className="bg-purple-50/50 border-b border-purple-100 pb-4">
-                <CardTitle className="text-lg text-purple-900">{isNew ? "Add Child" : "Edit Child"}</CardTitle>
+        <Card className="border-primary/20 shadow-lg">
+            <CardHeader className="bg-accent/50 border-b border-primary/20 pb-4">
+                <CardTitle className="text-lg text-primary">{isNew ? "Add Child" : "Edit Child"}</CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -235,13 +235,13 @@ export function ChildCard({ child, onSave, onDelete, onCancel, isNew = false }: 
                         </Label>
                     </div>
 
-                    <div className="flex justify-end gap-2 pt-4 border-t border-purple-100">
+                    <div className="flex justify-end gap-2 pt-4 border-t border-primary/20">
                         {onCancel && (
                             <Button type="button" variant="ghost" onClick={onCancel}>
                                 Cancel
                             </Button>
                         )}
-                        <Button type="submit" className="bg-purple-600 hover:bg-purple-700 text-white" disabled={isSaving}>
+                        <Button type="submit" className="bg-primary hover:bg-primary text-white" disabled={isSaving}>
                             {isSaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                             Save Child
                         </Button>

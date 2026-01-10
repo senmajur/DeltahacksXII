@@ -25,30 +25,30 @@ export default function MyActivitiesPage() {
 
         <div className="grid md:grid-cols-2 gap-6">
           <Card className="border-slate-200 shadow-sm">
-            <CardHeader className="bg-slate-50 border-b border-slate-100">
+            <CardHeader className="bg-background border-b border-slate-100">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-slate-900">Registered Activities</CardTitle>
-                <Badge className="bg-blue-600 text-white">0</Badge>
+                <Badge className="bg-primary text-white">0</Badge>
               </div>
               <CardDescription className="text-slate-500">Activities you've signed up for</CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
-              <div className="rounded-lg border-2 border-dashed border-slate-200 bg-slate-50 p-8 text-center">
+              <div className="rounded-lg border-2 border-dashed border-slate-200 bg-background p-8 text-center">
                 <p className="text-slate-500">No registered activities yet</p>
               </div>
             </CardContent>
           </Card>
 
           <Card className="border-slate-200 shadow-sm">
-            <CardHeader className="bg-slate-50 border-b border-slate-100">
+            <CardHeader className="bg-background border-b border-slate-100">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-slate-900">Completed Activities</CardTitle>
-                <Badge className="bg-blue-600 text-white">0</Badge>
+                <Badge className="bg-primary text-white">0</Badge>
               </div>
               <CardDescription className="text-slate-500">Activities you've completed</CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
-              <div className="rounded-lg border-2 border-dashed border-slate-200 bg-slate-50 p-8 text-center">
+              <div className="rounded-lg border-2 border-dashed border-slate-200 bg-background p-8 text-center">
                 <p className="text-slate-500">No completed activities yet</p>
               </div>
             </CardContent>
@@ -62,7 +62,7 @@ export default function MyActivitiesPage() {
               <Card key={activity.id} className="border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                 <CardHeader className="pb-3">
                   <div className="flex justify-between items-start">
-                    <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200 mb-2">{activity.club}</Badge>
+                    <Badge variant="outline" className="bg-accent text-primary border-primary/20 mb-2">{activity.club}</Badge>
                     <span className="font-bold text-slate-900">{activity.price}</span>
                   </div>
                   <CardTitle className="text-lg text-slate-900">{activity.title}</CardTitle>
@@ -85,7 +85,7 @@ export default function MyActivitiesPage() {
                   </div>
                 </CardContent>
                 <CardFooter className="pt-3 border-t border-slate-100">
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700">Register Now</Button>
+                  <Button className="w-full bg-primary hover:bg-primary">Register Now</Button>
                 </CardFooter>
               </Card>
             ))}

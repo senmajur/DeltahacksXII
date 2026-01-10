@@ -45,12 +45,12 @@ export default function ClubSignInPage() {
       <main className="flex-1 flex items-center justify-center p-6">
         <div className="w-full max-w-md bg-white/95 backdrop-blur-xl border border-white/20 shadow-2xl rounded-lg p-8">
           <div className="space-y-2 mb-6">
-            <h1 className="text-2xl font-bold text-purple-900">Club Sign In</h1>
-            <p className="text-purple-600">Enter your credentials to access your club dashboard</p>
+            <h1 className="text-2xl font-bold text-primary">Club Sign In</h1>
+            <p className="text-primary">Enter your credentials to access your club dashboard</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <label htmlFor="email" className="text-purple-900 font-medium text-sm">Email</label>
+              <label htmlFor="email" className="text-primary font-medium text-sm">Email</label>
               <input
                 id="email"
                 type="email"
@@ -58,15 +58,15 @@ export default function ClubSignInPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-2 bg-white/50 border border-purple-200 rounded-lg text-purple-900 placeholder:text-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-full px-4 py-2 bg-white/50 border border-primary/20 rounded-lg text-primary placeholder:text-primary focus:outline-none focus:ring-2 focus:ring-purple-400"
               />
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="text-purple-900 font-medium text-sm">Password</label>
+                <label htmlFor="password" className="text-primary font-medium text-sm">Password</label>
                 <a 
                   href="#" 
-                  className="text-sm text-purple-600 hover:text-purple-800 hover:underline font-medium"
+                  className="text-sm text-primary hover:text-primary hover:underline font-medium"
                 >
                   Forgot password?
                 </a>
@@ -77,7 +77,7 @@ export default function ClubSignInPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2 bg-white/50 border border-purple-200 rounded-lg text-purple-900 placeholder:text-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-full px-4 py-2 bg-white/50 border border-primary/20 rounded-lg text-primary placeholder:text-primary focus:outline-none focus:ring-2 focus:ring-purple-400"
               />
             </div>
             <Button 
@@ -86,9 +86,9 @@ export default function ClubSignInPage() {
             >
               Sign In
             </Button>
-            <div className="text-sm text-center text-purple-700">
+            <div className="text-sm text-center text-primary">
               Don't have an account?{" "}
-              <a href="/clubs/signup" className="text-purple-900 hover:underline font-semibold">
+              <a href="/clubs/signup" className="text-primary hover:underline font-semibold">
                 Sign Up
               </a>
             </div>

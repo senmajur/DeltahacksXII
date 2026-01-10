@@ -74,17 +74,17 @@ export default function UserMembershipPage() {
     <UserDashboardLayout title="My Memberships" activePage="membership">
       <div className="max-w-7xl mx-auto space-y-6">
         <div>
-          <p className="text-purple-600 mt-1">Manage your club memberships and subscriptions</p>
+          <p className="text-primary mt-1">Manage your club memberships and subscriptions</p>
         </div>
 
         {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-purple-200 shadow-lg bg-white">
+            <Card className="border-primary/20 shadow-lg bg-white">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-purple-600 font-medium">Active Memberships</p>
-                    <p className="text-3xl font-bold text-purple-900 mt-2">{activeMemberships.length}</p>
+                    <p className="text-sm text-primary font-medium">Active Memberships</p>
+                    <p className="text-3xl font-bold text-primary mt-2">{activeMemberships.length}</p>
                   </div>
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                     <Users className="h-6 w-6 text-white" />
@@ -93,12 +93,12 @@ export default function UserMembershipPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-purple-200 shadow-lg bg-white">
+            <Card className="border-primary/20 shadow-lg bg-white">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-purple-600 font-medium">Upcoming Events</p>
-                    <p className="text-3xl font-bold text-purple-900 mt-2">
+                    <p className="text-sm text-primary font-medium">Upcoming Events</p>
+                    <p className="text-3xl font-bold text-primary mt-2">
                       {mockMemberships.reduce((sum, m) => sum + m.events, 0)}
                     </p>
                   </div>
@@ -109,12 +109,12 @@ export default function UserMembershipPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-purple-200 shadow-lg bg-white">
+            <Card className="border-primary/20 shadow-lg bg-white">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-purple-600 font-medium">Expiring Soon</p>
-                    <p className="text-3xl font-bold text-purple-900 mt-2">{expiringMemberships.length}</p>
+                    <p className="text-sm text-primary font-medium">Expiring Soon</p>
+                    <p className="text-3xl font-bold text-primary mt-2">{expiringMemberships.length}</p>
                   </div>
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                     <Clock className="h-6 w-6 text-white" />
@@ -126,7 +126,7 @@ export default function UserMembershipPage() {
 
           {/* Tabs */}
           <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full">
-            <TabsList className="bg-white border border-purple-200 p-1">
+            <TabsList className="bg-white border border-primary/20 p-1">
               <TabsTrigger value="all" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-pink-600 data-[state=active]:text-white">
                 All Memberships ({mockMemberships.length})
               </TabsTrigger>
@@ -163,26 +163,26 @@ export default function UserMembershipPage() {
 
 function MembershipCard({ membership }: { membership: typeof mockMemberships[0] }) {
   return (
-    <Card className="border-purple-200 shadow-lg bg-white overflow-hidden">
-      <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100 p-6">
+    <Card className="border-primary/20 shadow-lg bg-white overflow-hidden">
+      <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-b border-primary/20 p-6">
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-2">
-              <h3 className="text-xl font-bold text-purple-900">{membership.clubName}</h3>
+              <h3 className="text-xl font-bold text-primary">{membership.clubName}</h3>
               <Badge 
                 variant={membership.status === "active" ? "default" : "destructive"}
                 className={membership.status === "active" 
-                  ? "bg-green-500 hover:bg-green-600" 
+                  ? "bg-secondary/200 hover:bg-secondary" 
                   : "bg-orange-500 hover:bg-orange-600"
                 }
               >
                 {membership.status === "active" ? "Active" : "Expiring Soon"}
               </Badge>
-              <Badge variant="outline" className="border-purple-300 text-purple-700">
+              <Badge variant="outline" className="border-primary/20 text-primary">
                 {membership.category}
               </Badge>
             </div>
-            <div className="flex items-center gap-6 text-sm text-purple-600">
+            <div className="flex items-center gap-6 text-sm text-primary">
               <span className="flex items-center gap-1">
                 <Award className="h-4 w-4" />
                 {membership.membershipType}
@@ -199,7 +199,7 @@ function MembershipCard({ membership }: { membership: typeof mockMemberships[0] 
           </div>
           <Button 
             variant="outline" 
-            className="border-purple-300 text-purple-700 hover:bg-purple-50"
+            className="border-primary/20 text-primary hover:bg-accent"
           >
             Manage
           </Button>
@@ -210,29 +210,29 @@ function MembershipCard({ membership }: { membership: typeof mockMemberships[0] 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <div>
-              <h4 className="text-sm font-semibold text-purple-900 mb-3">Membership Details</h4>
+              <h4 className="text-sm font-semibold text-primary mb-3">Membership Details</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-purple-600">Member Since:</span>
-                  <span className="font-medium text-purple-900">{membership.joinedDate}</span>
+                  <span className="text-primary">Member Since:</span>
+                  <span className="font-medium text-primary">{membership.joinedDate}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-purple-600">Expiry Date:</span>
-                  <span className="font-medium text-purple-900">{membership.expiryDate}</span>
+                  <span className="text-primary">Expiry Date:</span>
+                  <span className="font-medium text-primary">{membership.expiryDate}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-purple-600">Upcoming Events:</span>
-                  <span className="font-medium text-purple-900">{membership.events} events</span>
+                  <span className="text-primary">Upcoming Events:</span>
+                  <span className="font-medium text-primary">{membership.events} events</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-purple-50 rounded-lg p-3 border border-purple-100">
+            <div className="bg-accent rounded-lg p-3 border border-primary/20">
               <div className="flex items-start gap-2">
-                <Calendar className="h-4 w-4 text-purple-600 mt-0.5" />
+                <Calendar className="h-4 w-4 text-primary mt-0.5" />
                 <div>
-                  <p className="text-xs text-purple-600 font-medium">Next Event</p>
-                  <p className="text-sm text-purple-900 font-semibold">{membership.nextEvent}</p>
+                  <p className="text-xs text-primary font-medium">Next Event</p>
+                  <p className="text-sm text-primary font-semibold">{membership.nextEvent}</p>
                 </div>
               </div>
             </div>
@@ -240,19 +240,19 @@ function MembershipCard({ membership }: { membership: typeof mockMemberships[0] 
 
           <div className="space-y-4">
             <div>
-              <h4 className="text-sm font-semibold text-purple-900 mb-3">Contact Information</h4>
+              <h4 className="text-sm font-semibold text-primary mb-3">Contact Information</h4>
               <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2 text-purple-700">
+                <div className="flex items-center gap-2 text-primary">
                   <MapPin className="h-4 w-4" />
                   <span>{membership.location}</span>
                 </div>
-                <div className="flex items-center gap-2 text-purple-700">
+                <div className="flex items-center gap-2 text-primary">
                   <Mail className="h-4 w-4" />
                   <a href={`mailto:${membership.contactEmail}`} className="hover:underline">
                     {membership.contactEmail}
                   </a>
                 </div>
-                <div className="flex items-center gap-2 text-purple-700">
+                <div className="flex items-center gap-2 text-primary">
                   <Phone className="h-4 w-4" />
                   <a href={`tel:${membership.contactPhone}`} className="hover:underline">
                     {membership.contactPhone}
@@ -269,7 +269,7 @@ function MembershipCard({ membership }: { membership: typeof mockMemberships[0] 
               </Button>
               <Button 
                 variant="outline"
-                className="flex-1 border-purple-300 text-purple-700 hover:bg-purple-50"
+                className="flex-1 border-primary/20 text-primary hover:bg-accent"
               >
                 Renew
               </Button>

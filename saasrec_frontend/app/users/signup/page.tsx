@@ -81,14 +81,14 @@ export default function UserSignUpPage() {
       <main className="flex-1 flex items-center justify-center p-6">
         <Card className="w-full max-w-md bg-white/95 backdrop-blur-xl border-white/20 shadow-2xl">
           <CardHeader className="space-y-2">
-            <CardTitle className="text-2xl font-bold text-purple-900">Member Registration</CardTitle>
-            <CardDescription className="text-purple-600">Create a free account to join clubs and activities</CardDescription>
+            <CardTitle className="text-2xl font-bold text-primary">Member Registration</CardTitle>
+            <CardDescription className="text-primary">Create a free account to join clubs and activities</CardDescription>
           </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="firstName" className="text-purple-900 font-medium">First Name</Label>
+                <Label htmlFor="firstName" className="text-primary font-medium">First Name</Label>
                 <Input
                   id="firstName"
                   type="text"
@@ -96,11 +96,11 @@ export default function UserSignUpPage() {
                   value={formData.firstName}
                   onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                   required
-                  className="bg-white/50 border-purple-200 text-purple-900 placeholder:text-purple-500 focus:border-purple-400 focus:ring-purple-400"
+                  className="bg-white/50 border-primary/20 text-primary placeholder:text-primary focus:border-primary/20 focus:ring-purple-400"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="lastName" className="text-purple-900 font-medium">Last Name</Label>
+                <Label htmlFor="lastName" className="text-primary font-medium">Last Name</Label>
                 <Input
                   id="lastName"
                   type="text"
@@ -108,12 +108,12 @@ export default function UserSignUpPage() {
                   value={formData.lastName}
                   onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                   required
-                  className="bg-white/50 border-purple-200 text-purple-900 placeholder:text-purple-500 focus:border-purple-400 focus:ring-purple-400"
+                  className="bg-white/50 border-primary/20 text-primary placeholder:text-primary focus:border-primary/20 focus:ring-purple-400"
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-purple-900 font-medium">Email</Label>
+              <Label htmlFor="email" className="text-primary font-medium">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -121,11 +121,11 @@ export default function UserSignUpPage() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
-                className="bg-white/50 border-purple-200 text-purple-900 placeholder:text-purple-500 focus:border-purple-400 focus:ring-purple-400"
+                className="bg-white/50 border-primary/20 text-primary placeholder:text-primary focus:border-primary/20 focus:ring-purple-400"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="phone" className="text-purple-900 font-medium">Phone Number</Label>
+              <Label htmlFor="phone" className="text-primary font-medium">Phone Number</Label>
               <Input
                 id="phone"
                 type="tel"
@@ -133,11 +133,11 @@ export default function UserSignUpPage() {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 required
-                className="bg-white/50 border-purple-200 text-purple-900 placeholder:text-purple-500 focus:border-purple-400 focus:ring-purple-400"
+                className="bg-white/50 border-primary/20 text-primary placeholder:text-primary focus:border-primary/20 focus:ring-purple-400"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-purple-900 font-medium">Password</Label>
+              <Label htmlFor="password" className="text-primary font-medium">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -145,22 +145,22 @@ export default function UserSignUpPage() {
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 onBlur={() => setTouched({ ...touched, password: true })}
                 required
-                className="bg-white/50 border-purple-200 text-purple-900 placeholder:text-purple-500 focus:border-purple-400 focus:ring-purple-400"
+                className="bg-white/50 border-primary/20 text-primary placeholder:text-primary focus:border-primary/20 focus:ring-purple-400"
               />
               {touched.password && !passwordValid && (
                 <div className="text-sm text-red-600 mt-1">
                   <div>Password must meet the following:</div>
                   <ul className="list-disc ml-5">
-                    <li className={pwReq.length ? 'text-green-700' : 'text-red-600'}>At least 8 characters</li>
-                    <li className={pwReq.uppercase ? 'text-green-700' : 'text-red-600'}>One uppercase letter</li>
-                    <li className={pwReq.lowercase ? 'text-green-700' : 'text-red-600'}>One lowercase letter</li>
-                    <li className={pwReq.digit ? 'text-green-700' : 'text-red-600'}>One digit</li>
+                    <li className={pwReq.length ? 'text-primary' : 'text-red-600'}>At least 8 characters</li>
+                    <li className={pwReq.uppercase ? 'text-primary' : 'text-red-600'}>One uppercase letter</li>
+                    <li className={pwReq.lowercase ? 'text-primary' : 'text-red-600'}>One lowercase letter</li>
+                    <li className={pwReq.digit ? 'text-primary' : 'text-red-600'}>One digit</li>
                   </ul>
                 </div>
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-purple-900 font-medium">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-primary font-medium">Confirm Password</Label>
               <Input
                 id="confirmPassword"
                 type="password"
@@ -168,7 +168,7 @@ export default function UserSignUpPage() {
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 onBlur={() => setTouched({ ...touched, confirmPassword: true })}
                 required
-                className="bg-white/50 border-purple-200 text-purple-900 placeholder:text-purple-500 focus:border-purple-400 focus:ring-purple-400"
+                className="bg-white/50 border-primary/20 text-primary placeholder:text-primary focus:border-primary/20 focus:ring-purple-400"
               />
               {touched.confirmPassword && !passwordsMatch && (
                 <p className="text-sm text-red-600 mt-1">Passwords do not match</p>
@@ -180,9 +180,9 @@ export default function UserSignUpPage() {
                 checked={formData.agreedToTerms}
                 onCheckedChange={(checked) => setFormData({ ...formData, agreedToTerms: checked as boolean })}
                 required
-                className="border-purple-300 data-[state=checked]:bg-purple-600"
+                className="border-primary/20 data-[state=checked]:bg-primary"
               />
-              <Label htmlFor="terms" className="text-sm leading-relaxed cursor-pointer text-purple-800">
+              <Label htmlFor="terms" className="text-sm leading-relaxed cursor-pointer text-primary">
                 I agree to the terms and conditions and privacy policy
               </Label>
             </div>
@@ -195,9 +195,9 @@ export default function UserSignUpPage() {
             >
               Create Account
             </Button>
-            <div className="text-sm text-center text-purple-700">
+            <div className="text-sm text-center text-primary">
               Already have an account?{" "}
-              <a href="/users/signin" className="text-purple-900 hover:underline font-semibold">
+              <a href="/users/signin" className="text-primary hover:underline font-semibold">
                 Sign In
               </a>
             </div>
