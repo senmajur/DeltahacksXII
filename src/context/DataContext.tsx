@@ -48,6 +48,12 @@ interface DataContextValue {
     currentUserId?: string,
     otherUserId?: string,
   ) => Promise<Message[]>;
+  fetchUnreadMessages: (receiverId: string) => Promise<Message[]>;
+  markThreadRead: (
+    itemId: string,
+    otherUserId: string,
+    receiverId: string,
+  ) => Promise<void>;
   markStatus: (itemId: string, status: ItemStatus) => Promise<void>;
 }
 
@@ -533,6 +539,54 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     [demoMessages],
   );
 
+  const fetchUnreadMessages = useCallback(
+    async (receiverId: string) => {
+      if (!supabase) {
+        return demoMessages.filter(
+          (m) => m.receiver_id === receiverId && !m.read_at,
+        );
+      }
+      const { data, error } = await supabase
+        .from('messages')
+        .select('*')
+        .eq('receiver_id', receiverId)
+        .is('read_at', null)
+        .order('created_at', { ascending: false });
+      if (error) {
+        console.error('Failed to load unread messages', error.message);
+        return [];
+      }
+      return data as Message[];
+    },
+    [demoMessages],
+  );
+
+  const markThreadRead = useCallback(
+    async (itemId: string, otherUserId: string, receiverId: string) => {
+      if (!supabase) {
+        setDemoMessages((prev) =>
+          prev.map((m) =>
+            m.item_id === itemId &&
+            m.receiver_id === receiverId &&
+            m.sender_id === otherUserId
+              ? { ...m, read_at: new Date().toISOString() }
+              : m,
+          ),
+        );
+        return;
+      }
+      const { error } = await supabase
+        .from('messages')
+        .update({ read_at: new Date().toISOString() })
+        .eq('item_id', itemId)
+        .eq('receiver_id', receiverId)
+        .eq('sender_id', otherUserId)
+        .is('read_at', null);
+      if (error) console.warn('Failed to mark thread read', error.message);
+    },
+    [],
+  );
+
   const markStatus = useCallback(
     async (itemId: string, status: ItemStatus) => {
       if (!supabase) {
@@ -570,6 +624,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       claimItem,
       sendMessage,
       fetchMessages,
+      fetchUnreadMessages,
+      markThreadRead,
       markStatus,
     }),
     [
@@ -582,6 +638,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       claimItem,
       sendMessage,
       fetchMessages,
+      fetchUnreadMessages,
+      markThreadRead,
       markStatus,
     ],
   );

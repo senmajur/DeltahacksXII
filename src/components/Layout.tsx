@@ -1,6 +1,8 @@
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useData } from '../context/DataContext';
+import type { Message } from '../types';
 import '../App.css';
 
 const navLinks = [
@@ -20,8 +22,11 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     closeAuthDialog,
     submitEmail,
   } = useAuth();
+  const { fetchUnreadMessages } = useData();
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [unread, setUnread] = useState<Message[]>([]);
+  const [showBell, setShowBell] = useState(false);
 
   const handleOpenAuth = () => {
     setEmail('');
@@ -40,6 +45,27 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     setSubmitting(false);
     setEmail('');
   };
+
+  useEffect(() => {
+    let cancelled = false;
+    const load = async () => {
+      if (!user?.id) {
+        setUnread([]);
+        return;
+      }
+      const data = await fetchUnreadMessages(user.id);
+      if (!cancelled) setUnread(data);
+    };
+    void load();
+    const interval = setInterval(load, 10000);
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
+  }, [user?.id, fetchUnreadMessages]);
+
+  const otherUserFromMessage = (msg: Message) =>
+    msg.sender_id === user?.id ? msg.receiver_id : msg.sender_id;
 
   return (
     <div className="app-shell">
@@ -67,6 +93,40 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               <span className="nav-user">
                 {user.name || 'McMaster user'} - {user.email}
               </span>
+              <div className="notification">
+                <button
+                  type="button"
+                  className="icon-button"
+                  onClick={() => setShowBell((prev) => !prev)}
+                  aria-label="Unread messages"
+                >
+                  🔔
+                  {unread.length > 0 && (
+                    <span className="badge-counter">{unread.length}</span>
+                  )}
+                </button>
+                {showBell && (
+                  <div className="notification-panel">
+                    {unread.length === 0 && <p className="hint">No unread messages.</p>}
+                    {unread.slice(0, 5).map((msg) => (
+                      <Link
+                        key={msg.id}
+                        to={`/chat/${msg.item_id}/${otherUserFromMessage(msg)}`}
+                        className="notification-item"
+                        onClick={() => setShowBell(false)}
+                      >
+                        <div className="notification-title">
+                          Chat on item {msg.item_id.slice(0, 6)}...
+                        </div>
+                        <div className="notification-body">{msg.body.slice(0, 80)}</div>
+                      </Link>
+                    ))}
+                    {unread.length > 5 && (
+                      <p className="hint">+{unread.length - 5} more</p>
+                    )}
+                  </div>
+                )}
+              </div>
               <button className="ghost-button" onClick={() => void signOut()}>
                 Sign out
               </button>
