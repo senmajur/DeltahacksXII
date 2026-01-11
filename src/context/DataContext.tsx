@@ -480,6 +480,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       body: string,
       sender: UserProfile | null,
     ) => {
+      const macid = sender?.email ? sender.email.split('@')[0] : null;
       if (!supabase) {
         const message: Message = {
           id: crypto.randomUUID(),
@@ -487,19 +488,31 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
           sender_id: sender?.id ?? 'demo-sender',
           receiver_id: receiverId,
           body,
+          sender_macid: macid,
           created_at: new Date().toISOString(),
         };
         setDemoMessages((prev) => [...prev, message]);
         return;
       }
 
-      const { error } = await supabase.from('messages').insert({
+      const payload: Record<string, unknown> = {
         item_id: itemId,
         sender_id: sender?.id ?? null,
         receiver_id: receiverId,
         body,
-      });
-      if (error) console.error('Failed to send message', error.message);
+        sender_macid: macid,
+      };
+
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        const { error } = await supabase.from('messages').insert(payload);
+        if (!error) return;
+        if (error.message.includes("column 'sender_macid' does not exist")) {
+          delete payload.sender_macid;
+          continue;
+        }
+        console.error('Failed to send message', error.message);
+        return;
+      }
     },
     [],
   );

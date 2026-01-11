@@ -50,6 +50,7 @@ export interface Message {
   sender_id: string;
   receiver_id: string;
   body: string;
+  sender_macid?: string | null;
   created_at?: string | null;
   read_at?: string | null;
 }

@@ -1,8 +1,9 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useData } from '../context/DataContext';
 import type { Message } from '../types';
+import { supabase } from '../lib/supabase';
 import '../App.css';
 
 const navLinks = [
@@ -22,11 +23,14 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     closeAuthDialog,
     submitEmail,
   } = useAuth();
-  const { fetchUnreadMessages } = useData();
+  const { fetchUnreadMessages, markThreadRead } = useData();
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [unread, setUnread] = useState<Message[]>([]);
   const [showBell, setShowBell] = useState(false);
+  const channelRef = useRef<
+    ReturnType<NonNullable<typeof supabase>['channel']> | null
+  >(null);
 
   const handleOpenAuth = () => {
     setEmail('');
@@ -63,6 +67,36 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       clearInterval(interval);
     };
   }, [user?.id, fetchUnreadMessages]);
+
+  useEffect(() => {
+    const client = supabase;
+    if (!client || !user?.id) return;
+    const channel = client
+      .channel(`unread-${user.id}`)
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'messages',
+          filter: `receiver_id=eq.${user.id}`,
+        },
+        (payload) => {
+          const msg = payload.new as Message;
+          setUnread((prev) => {
+            if (prev.some((m) => m.id === msg.id)) return prev;
+            return [msg, ...prev];
+          });
+        },
+      )
+      .subscribe();
+    channelRef.current = channel;
+    return () => {
+      if (channelRef.current) {
+        void client.removeChannel(channelRef.current);
+      }
+    };
+  }, [user?.id]);
 
   const otherUserFromMessage = (msg: Message) =>
     msg.sender_id === user?.id ? msg.receiver_id : msg.sender_id;
@@ -109,12 +143,22 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                   <div className="notification-panel">
                     {unread.length === 0 && <p className="hint">No unread messages.</p>}
                     {unread.slice(0, 5).map((msg) => (
-                      <Link
-                        key={msg.id}
-                        to={`/chat/${msg.item_id}/${otherUserFromMessage(msg)}`}
-                        className="notification-item"
-                        onClick={() => setShowBell(false)}
-                      >
+                    <Link
+                      key={msg.id}
+                      to={`/chat/${msg.item_id}/${otherUserFromMessage(msg)}`}
+                      className="notification-item"
+                      onClick={() => {
+                        setUnread((prev) =>
+                          prev.filter((m) => m.id !== msg.id),
+                        );
+                        void markThreadRead(
+                          msg.item_id,
+                          otherUserFromMessage(msg),
+                          user.id,
+                        );
+                        setShowBell(false);
+                      }}
+                    >
                         <div className="notification-title">
                           Chat on item {msg.item_id.slice(0, 6)}...
                         </div>
